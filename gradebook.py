@@ -4,3 +4,6 @@ class Gradebook:
         self.courses = {}
         self.grades = {}
         self.passing_grade = 55
+
+    def add_student(self, student):
+        self.students[student.get_id()] = student
