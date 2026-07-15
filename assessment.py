@@ -5,3 +5,10 @@ class Assessment:
 
     def calculate_percentage(self, score):
         return (score / self.max_score) * 100
+
+    def grade_message(self, score):
+        percentage = self.calculate_percentage(score)
+        if percentage >= 55:
+            return "Good job!"
+        else:
+            return "Needs improvement."
