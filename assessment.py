@@ -12,3 +12,7 @@ class Assessment:
             return "Good job!"
         else:
             return "Needs improvement."
+
+    def display_info(self):
+        print(f"{self.title} / max_score: {self.max_score}")
+
