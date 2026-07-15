@@ -14,15 +14,15 @@ class Assessment:
             return "Needs improvement."
 
     def display_info(self):
-        print(f"{self.title} / max_score: {self.max_score}")
+        print(f"{self.title} / Max Score: {self.max_score}")
 
 class Quiz(Assessment):
     def display_info(self):
-        print(f"Quiz: {self.title} / max_score: {self.max_score}")
+        print(f"Quiz: {self.title} / Max Score: {self.max_score}")
 
     def grade_message(self, score):
         percentage = self.calculate_percentage(score)
-        if percentage >= 80
+        if percentage >= 80:
             return "Great quiz result!"
         else:
             return "Needs more practice."
