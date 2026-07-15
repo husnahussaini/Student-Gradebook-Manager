@@ -17,3 +17,5 @@ class Assessment:
         print(f"{self.title} / max_score: {self.max_score}")
 
 class Quiz(Assessment):
+    def display_info(self):
+        print(f"Quiz: {self.title} / max_score: {self.max_score}")
