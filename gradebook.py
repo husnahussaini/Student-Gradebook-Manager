@@ -109,3 +109,16 @@ class Gradebook:
                 return student
         return None
 
+    def delete_student(self, student_id):
+        if student_id not in self.students:
+            return
+        student = self.students[student_id]
+        for course_code in student.courses:
+            course = self.courses[course_code]
+
+            if student_id in course.students:
+                course.students.remove(student_id)
+        if student_id in self.grades:
+            del self.grades[student_id]
+        del self.students[student_id]
+
