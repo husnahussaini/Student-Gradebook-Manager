@@ -72,3 +72,32 @@ class Gradebook:
             return "Passed"
         return "Failed"
 
+    def show_report(self, student_id):
+        if student_id not in self.students:
+            return
+
+        student = self.students[student_id]
+
+        print("\n===== Student Report =====")
+        print(f"Student ID: {student.get_id()}")
+        print(f"Name: {student.get_name()}")
+        print(f"Email: {student.get_email()}")
+
+        for course_code in student.courses:
+            course = self.courses[course_code]
+
+            print(f"\nCourse: {course.course_name}")
+
+            if student_id in self.grades and course_code in self.grades[student_id]:
+                for assessment in course.assessments:
+                    if assessment.title in self.grades[student_id][course_code]:
+                        score = self.grades[student_id][course_code][assessment.title]
+                        percentage = assessment.calculate_percentage(score)
+
+                        print(f"{assessment.title}: {score}/{assessment.max_score} = {percentage:.1f}%")
+
+                average = self.calculate_average(student_id, course_code)
+
+                print(f"Average: {average:.2f}")
+                print(f"Result: {self.get_result(average)}")
+
