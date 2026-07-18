@@ -33,3 +33,5 @@ while True:
         gradebook.add_student(student)
 
         print("Student added successfully!")
+    elif choice == "2":
+        gradebook.view_students()

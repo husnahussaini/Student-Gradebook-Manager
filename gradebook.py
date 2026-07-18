@@ -155,3 +155,12 @@ class Gradebook:
             return "Keep improving!"
         else:
             return "Needs more practice!"
+
+    def view_students(self):
+        if not self.students:
+            print("No students found.")
+            return
+
+        for student in self.students.values():
+            student.display_info()
+            print("-" * 30)
