@@ -122,3 +122,11 @@ class Gradebook:
             del self.grades[student_id]
         del self.students[student_id]
 
+    def update_student(self, student_id, new_name, new_email):
+        if student_id not in self.students:
+            return
+        student = self.students[student_id]
+
+        student.set_name(new_name)
+        student.set_email(new_email)
+

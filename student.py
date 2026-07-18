@@ -11,8 +11,11 @@ class Student:
     def get_name(self):
         return self.name
 
+    def set_name(self, name):
+        self.name = name
+
     def set_email(self, email):
-        if "@" and "." in email:
+        if "@" in email and "." in email:
             self.__email = email
             return True
         else:
