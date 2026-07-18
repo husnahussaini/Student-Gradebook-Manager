@@ -100,6 +100,8 @@ class Gradebook:
                 average = self.calculate_average(student_id, course_code)
 
                 print(f"Average: {average:.2f}")
+                print(f"Letter Grade: {self.get_letter_grade(average)}")
+                print(f"Teacher Comment: {self.get_teacher_comment(average)}")
                 print(f"Result: {self.get_result(average)}")
 
     def search_student(self, keyword):
@@ -130,3 +132,14 @@ class Gradebook:
         student.set_name(new_name)
         student.set_email(new_email)
 
+    def get_letter_grade(self, average):
+        if average >= 90:
+            return "A"
+        elif average >= 80:
+            return "B"
+        elif average >= 70:
+            return "C"
+        elif average >= 60:
+            return "D"
+        else:
+            return "F"
