@@ -143,3 +143,15 @@ class Gradebook:
             return "D"
         else:
             return "F"
+
+    def get_teacher_comment(self, average):
+        if average >= 90:
+            return "Excellent work!"
+        elif average >= 80:
+            return "Very good!"
+        elif average >= 70:
+            return "Good job!"
+        elif average >= 60:
+            return "Keep improving!"
+        else:
+            return "Needs more practice!"
