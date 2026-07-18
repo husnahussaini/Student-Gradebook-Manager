@@ -29,3 +29,21 @@ class Gradebook:
             course = self.courses[course_code]
             course.add_assessment(assessment)
 
+    def record_grade(self, student_id, course_code, assessment_title, score):
+        if student_id not in self.students:
+            return
+        if course_code not in self.courses:
+            return
+        course = self.courses[course_code]
+        assessment = course.find_assessment(assessment_title)
+        if assessment is None:
+            return
+        if score < 0 or score > assessment.max_score:
+            return
+        if student_id not in self.grades:
+            self.grades[student_id] = {}
+        if course_code not in self.grades[student_id]:
+            self.grades[student_id][course_code] = {}
+            self.grades[student_id][course_code][assessment_title] = score
+
+
