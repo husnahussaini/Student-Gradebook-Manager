@@ -24,3 +24,12 @@ while True:
     if choice == "0":
         print("Goodbye!")
         break
+    elif choice == "1":
+        student_id = input("Student ID: ")
+        name = input("Name: ")
+        email = input("Email: ")
+
+        student = Student(student_id, name, email)
+        gradebook.add_student(student)
+
+        print("Student added successfully!")
