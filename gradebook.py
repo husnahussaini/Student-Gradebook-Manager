@@ -1,3 +1,4 @@
+import student
 from student import Student
 from course import Course
 from assessment import Assessment, Quiz, Exam, Project
@@ -100,4 +101,11 @@ class Gradebook:
 
                 print(f"Average: {average:.2f}")
                 print(f"Result: {self.get_result(average)}")
+
+    def search_student(self, keyword):
+        keyword = keyword.lower()
+        for student in self.students.values():
+            if keyword == student.get_id().lower() or keyword in student.get_name().lower():
+                return student
+        return None
 
