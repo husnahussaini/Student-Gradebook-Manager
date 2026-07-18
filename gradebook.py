@@ -22,3 +22,10 @@ class Gradebook:
 
             student.enroll_course(course_code)
             course.add_student(student_id)
+
+
+    def add_assessment(self, course_code, assessment):
+        if course_code in self.courses:
+            course = self.courses[course_code]
+            course.add_assessment(assessment)
+
