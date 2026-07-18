@@ -1,3 +1,7 @@
+from student import Student
+from course import Course
+from assessment import Assessment, Quiz, Exam, Project
+
 class Gradebook:
     def __init__(self):
         self.students = {}
@@ -7,3 +11,8 @@ class Gradebook:
 
     def add_student(self, student):
         self.students[student.get_id()] = student
+
+    def add_course(self, course):
+        self.courses[course.course_code] = course
+
+
