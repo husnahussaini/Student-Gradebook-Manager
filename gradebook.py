@@ -44,6 +44,27 @@ class Gradebook:
             self.grades[student_id] = {}
         if course_code not in self.grades[student_id]:
             self.grades[student_id][course_code] = {}
-            self.grades[student_id][course_code][assessment_title] = score
+        self.grades[student_id][course_code][assessment_title] = score
+
+
+    def calculate_average(self, student_id, course_code):
+        if student_id not in self.grades:
+            return 0
+        if course_code not in self.grades[student_id]:
+            return 0
+
+        course = self.courses[course_code]
+        total = 0
+        count = 0
+
+        for assessment in course.assessments:
+            if assessment.title in self.grades[student_id][course_code]:
+                score = self.grades[student_id][course_code][assessment.title]
+                total += assessment.calculate_percentage(score)
+                count += 1
+
+        if count == 0:
+            return 0
+        return total / count
 
 
