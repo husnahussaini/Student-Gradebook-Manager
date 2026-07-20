@@ -35,3 +35,38 @@ while True:
         print("Student added successfully!")
     elif choice == "2":
         gradebook.view_students()
+    elif choice == "3":
+        course_code = input("Course Code: ")
+        course_name = input("Course Name: ")
+        course = Course(course_code, course_name)
+        gradebook.add_course(course)
+        print("Course added successfully!")
+    elif choice == "4":
+        student_id = input("Student ID: ")
+        course_code = input("Course Code: ")
+        gradebook.enroll_student(student_id, course_code)
+        print("Student enrolled successfully!")
+    elif choice == "5":
+        course_code = input("Course Code: ")
+        assessment_type = input("Assessment Type (Quiz/Exam/Project): ")
+        title = input("Title: ")
+        max_score = float(input("Max Score: "))
+
+        if assessment_type.lower() == "quiz":
+            assessment = Quiz(title, max_score)
+        elif assessment_type.lower() == "exam":
+            assessment = Exam(title, max_score)
+        elif assessment_type.lower() == "project":
+            assessment = Project(title, max_score)
+        else:
+            print("Invalid assessment type!")
+            continue
+        gradebook.add_assessment(course_code, assessment)
+        print("Assessment added successfully!")
+    elif choice == "6":
+        student_id = input("Student ID: ")
+        course_code = input("Course Code: ")
+        assessment_title = input("Assessment Title: ")
+        score = float(input("Score: "))
+        gradebook.record_grade(student_id, course_code, assessment_title, score)
+        print("Assessment record added successfully!")
