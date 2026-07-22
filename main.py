@@ -70,3 +70,26 @@ while True:
         score = float(input("Score: "))
         gradebook.record_grade(student_id, course_code, assessment_title, score)
         print("Assessment record added successfully!")
+    elif choice == "7":
+        student_id = input("Student ID: ")
+        gradebook.show_report(student_id)
+    elif choice == "8":
+        keyword = input("Enter Student ID or Name: ")
+        student = gradebook.search_student(keyword)
+        if student:
+            student.display_info()
+        else:
+            print("Student not found!")
+    elif choice == "9":
+        student_id = input("Student ID: ")
+        new_name = input("New Name: ")
+        new_email = input("New Email: ")
+        gradebook.update_student(student_id, new_name, new_email)
+        print("Student updated successfully!")
+    elif choice == "10":
+        student_id = input("Student ID: ")
+        gradebook.delete_student(student_id)
+        print("Student deleted successfully!")
+    else:
+        print("Invalid choice, Please try again.")
+

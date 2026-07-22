@@ -1,7 +1,4 @@
-import student
-from student import Student
-from course import Course
-from assessment import Assessment, Quiz, Exam, Project
+
 
 class Gradebook:
     def __init__(self):
@@ -95,7 +92,7 @@ class Gradebook:
                         score = self.grades[student_id][course_code][assessment.title]
                         percentage = assessment.calculate_percentage(score)
 
-                        print(f"{assessment.title}: {score}/{assessment.max_score} = {percentage:.1f}%")
+                        print(f"{assessment.title}: {score:.0f}/{assessment.max_score:.0f} = {percentage:.1f}%")
 
                 average = self.calculate_average(student_id, course_code)
 
